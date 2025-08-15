@@ -43,32 +43,21 @@ class Infoga(object):
 	color = colors.colors()
 	printf = printer.printer()
 	allemail = []
-	def banner(self):
-		print self.color.red(1)+"   __        ___                         "+self.color.reset()
-		print self.color.red(1)+"  |__.-----.'  _.-----.-----.---.-.      "+self.color.reset()
-		print self.color.red(1)+"  |  |     |   _|  _  |  _  |  _  |      "+self.color.reset()
-		print self.color.red(1)+"  |__|__|__|__| |_____|___  |___._|      "+self.color.reset()
-		print self.color.red(1)+"                      |_____|            "+self.color.reset()
-		print self.color.white(0)+"                                       "+self.color.reset()
-		print self.color.white(0)+"|| Infoga - Email Information Gathering"+self.color.reset()
-		print self.color.white(0)+"|| Infoga v4.1 - \"Mr.Robot\"          "+self.color.reset()
-		print self.color.white(0)+"|| Momo Outaadi (The404Hacking)               "+self.color.reset()
-		print self.color.white(0)+"|| https://github.com/The404Hacking/Infoga    "+self.color.reset()
-		print self.color.white(0)+"                                       "+self.color.reset()
+
 
 	def usage(self):
 		name = os.path.basename(sys.argv[0]).split(".")[0]
 		self.banner()
-		print "Usage: %s -t [target] -s [source]\n"%(name)
-		print "\t-t --target\tDomain to search"
-		print "\t-s --source\tData source: [all,google,bing,yahoo,pgp]"
-		print "\t-i --info\tGet email informatios"
-		print "\t-h --help\tShow this help and exit\n"
-		print "Examples:"
-		print "\t %s --target site.com --source all"%(name)
-		print "\t %s --target site.com --source [google,bing,...]"%(name)
-		print "\t %s --info test123@site.com"%(name)
-		print ""
+		print("Usage: %s -t [target] -s [source]\n"%(name))
+		print("\t-t --target\tDomain to search")
+		print("\t-s --source\tData source: [all,google,bing,yahoo,pgp]")
+		print("\t-i --info\tGet email informatios")
+		print("\t-h --help\tShow this help and exit\n")
+		print("Examples:")
+		print("\t %s --target site.com --source all"%(name))
+		print("\t %s --target site.com --source [google,bing,...]"%(name))
+		print("\t %s --info test123@site.com"%(name))
+		print("")
 		sys.exit()
 
 	def info(self):
@@ -115,15 +104,15 @@ class Infoga(object):
 						self.printf.info("Ports: %s"%(jso["ports"]))
 						if "vulns" in jso:
 							self.printf.info("Vulns: %s"%(jso["vulns"][0]))
-						print ""
+						print("")
 
 					elif "No information available for that IP." or "error" in jso:
 						self.printf.ip("IP: %s (%s)"%(new[s],self.sock))
 						self.printf.info("No information available for that ip :(",color="r")
-						print ""
+						print("")
 					else:
 						self.printf.ip("IP: %s (%s)"%(new[s],self.sock))
-						print ""
+						print("")
 		except Exception as error:
 			pass 
 		sys.exit()
@@ -186,12 +175,12 @@ class Infoga(object):
 					self.printf.info("Ports: %s"%(jso["ports"]))
 					if 'vulns' in jso:
 						self.printf.info("Vulns: %s"%(jso["vulns"][0]))
-					print ""
+					print("")
 				
 				elif "No information available for that IP." or "error" in jso:
 					self.printf.ip("IP: %s (%s)"%(new[s],self.sock))
 					self.printf.info("No information available for that ip :(",color="r")
-					print ""
+					print("")
 
 				else:
 					self.printf.ip("IP: %s (%s)"%(new[s],self.sock))
